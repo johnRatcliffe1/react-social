@@ -1,23 +1,21 @@
-import React, {useState} from 'react';
+
 import Table from 'react-bootstrap/Table';
 import './App.css';
 
-function View(){
-    const [todos, changeTodos] = useState( [{ id: 1, task: "make static data", complete: false },
-    { id: 2, task: "make dynamic data", complete: false }])
+function View(props){
 
-
+  
   const buildRows = () =>  {
-    return todos.map((current) => (
+    return props.todos?.map((current) => (
       <tr key={current.id}>
         <td>
-          {current.id}
+          {current?.id}
         </td>
         <td>
-          {current.task}
+          {current?.description}
         </td>
         <td>
-          {current.complete ? "yes" : "no"}
+          {current?.completed ? "yes" : "no"}
         </td>
       </tr>
     )
